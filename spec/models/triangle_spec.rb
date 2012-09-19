@@ -20,6 +20,11 @@ describe Triangle do
     @t.internal_angles.count.should eq 3
   end
 
+  it "knows its internal angles" do
+    answers = [28.955,46.567,104.478]
+    @t.internal_angles.should eq answers
+  end
+
   it "knows its internal angles in degrees to the nearest " do
     # @t.internal_angles.should eq [29, 47, 104]
   end

@@ -2,9 +2,9 @@ class Triangle
 
   def initialize(*side_lengths)
     @a, @b, @c = side_lengths.map{|i|i.to_f}
-    @A = angle_A.to_degrees
-    @C = inverse_cosC.to_degrees
-    @B = 180 - (@A + @C)
+    @A = angle_A.to_degrees.round(3)
+    @C = inverse_cosC.to_degrees.round(3)
+    @B = (180 - (@A + @C)).round(3)
   end
 
   def side_lengths
