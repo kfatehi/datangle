@@ -1,7 +1,3 @@
-##
-# a and b are the leg side lengths
-# C is the angle connecting the legs
-# c is the hidden side length
 class Triangle
   attr_reader :coordinates
 
