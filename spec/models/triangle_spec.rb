@@ -8,6 +8,11 @@ describe Triangle do
     @t = Triangle.new(2,3,4)
   end
 
+  it "knows if it is possible" do
+    Triangle.new(0,2,1).should_not be_possible
+    @t.should be_possible
+  end
+
   it "has 3 side lengths" do
     @t.side_lengths.count.should eq 3
   end
