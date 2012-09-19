@@ -25,6 +25,10 @@ describe Triangle do
     @t.internal_angles.count.should eq 3
   end
 
+  it "has angles aliased to internal angles" do
+    @t.angles.should eq @t.internal_angles
+  end
+
   it "knows its internal angles" do
     answers = [28.955,46.567,104.478]
     @t.internal_angles.should eq answers

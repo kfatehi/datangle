@@ -1,4 +1,8 @@
   <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;"></canvas>
 <br>
-<%= @triangles.inspect %>
+<%= sort_by_angle_c(@triangles).inspect %>
+<script type="text/javascript">
+var triangles = <%= raw @triangles.to_json %>
+</script>
+
   

@@ -1,5 +1,8 @@
+##
+# a and b are the leg side lengths
+# C is the angle connecting the legs
+# c is the hidden side length
 class Triangle
-
   def initialize(*side_lengths)
     begin
       @a, @b, @c = side_lengths.map{|i|i.to_f}
@@ -18,6 +21,8 @@ class Triangle
   def internal_angles
     [@A, @B, @C]
   end
+
+  alias_method :angles, :internal_angles
 
   def cosC
     ((@a**2)+(@b**2)-(@c**2)) / (2*@a*@b)
