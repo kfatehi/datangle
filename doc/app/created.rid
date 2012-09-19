@@ -1,0 +1,8 @@
+Wed, 19 Sep 2012 05:21:37 -0700
+doc/README_FOR_APP	Tue, 18 Sep 2012 23:54:05 -0700
+app/controllers/application_controller.rb	Tue, 18 Sep 2012 23:54:05 -0700
+app/controllers/main_controller.rb	Wed, 19 Sep 2012 05:12:32 -0700
+app/helpers/application_helper.rb	Tue, 18 Sep 2012 23:54:05 -0700
+app/helpers/main_helper.rb	Wed, 19 Sep 2012 05:15:02 -0700
+app/models/generator.rb	Wed, 19 Sep 2012 05:21:32 -0700
+app/models/triangle.rb	Wed, 19 Sep 2012 05:12:11 -0700

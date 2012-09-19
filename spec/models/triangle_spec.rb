@@ -8,6 +8,10 @@ describe Triangle do
     @t = Triangle.new(2,3,4)
   end
 
+  it "has coordinates" do
+    @t.coordinates.count.should eq 3
+  end
+
   it "knows if it is possible" do
     Triangle.new(0,2,1).should_not be_possible
     @t.should be_possible

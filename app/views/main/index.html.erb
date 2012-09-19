@@ -1,8 +1,24 @@
-  <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;"></canvas>
-<br>
-<%= sort_by_angle_c(@triangles).inspect %>
+<% @triangles = sort_by_middle_angle(@triangles) %>
+
+<div id="triangles_container">
+  <% @triangles.each_with_index do |triangle, index| %>
+    <div id="triangle_container" style="display:inline-block">
+      <%= canvas("triangle_#{index}") %><br>
+      Side lengths: <%= triangle.side_lengths %><br>
+      Internal angles: <%= triangle.angles %><br>
+      Coordinates: <%= triangle.coordinates.map{|c| "#{c[:x]}, #{c[:y]}"} %><br>
+    </div>
+  <% end %>
+</div>
+
+
+
 <script type="text/javascript">
-var triangles = <%= raw @triangles.to_json %>
+  $(function() {
+    var triangles = <%= raw @triangles.to_json %>;
+    $(triangles).each(function (index, triangle) {
+      draw_triangle(triangle, index);
+    });
+  });
 </script>
 
-  
