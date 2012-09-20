@@ -2,20 +2,35 @@
 
 <div id="triangles_container">
   <% @triangles.each_with_index do |triangle, index| %>
-    <div id="triangle_container" style="display:inline-block">
+    <div class="triangle_container" style="display:inline-block">
       <%= canvas("triangle_#{index}") %><br>
-      Side lengths: <%= triangle.side_lengths %><br>
-      Internal angles: <%= triangle.angles %><br>
-      Coordinates: <%= triangle.coordinates.map{|c| "#{c[:x]}, #{c[:y]}"} %><br>
+      <div id="details_<%= index %>">
+        Main Angle: <b><%= triangle.angles.last %>&deg;</b><br>
+        Side lengths: <%= triangle.side_lengths.join('; ') %><br>
+        Internal angles: <%= triangle.angles.map{|i| "#{i}&deg;"}.join('; ').html_safe %><br>
+        Coordinates: <%= triangle.coordinates.map{|c| "(#{c[:x]}, #{c[:y]})"}.join('; ') %><br>
+      </div>
     </div>
   <% end %>
 </div>
 
+<h2>Customize your angles: </h2>
+<%= form_tag :action=>"index" do %>
+  <p>
+    <%= label_tag :number_of_angles %>
+    <%= text_field_tag :number_of_angles, @generator.count %>
+  </p>
+  <p>
+    <%= label_tag :minimum_angle_closeness %>
+    <%= text_field_tag :angle_threshold, @generator.threshold %>  
+  </p>  
+  <%= submit_tag :generate %>
+<% end %>
 
 
 <script type="text/javascript">
+  var triangles = <%= raw @triangles.to_json %>;
   $(function() {
-    var triangles = <%= raw @triangles.to_json %>;
     $(triangles).each(function (index, triangle) {
       draw_triangle(triangle, index);
     });
