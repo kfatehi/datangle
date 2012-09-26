@@ -23,8 +23,12 @@
     <%= text_field_tag :number_of_angles, @generator.count %>
   </p>
   <p>
-    <%= label_tag :minimum_angle_closeness %>
-    <%= text_field_tag :angle_threshold, @generator.threshold %>  
+    <%= label_tag :too_far %>
+    <%= text_field_tag :too_far, @generator.too_far %>  
+  </p>  
+  <p>
+    <%= label_tag :too_close %>
+    <%= text_field_tag :too_close, @generator.too_close %>  
   </p>  
   <%= submit_tag :generate %>
 <% end %>

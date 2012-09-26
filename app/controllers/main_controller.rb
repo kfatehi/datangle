@@ -1,9 +1,10 @@
 class MainController < ApplicationController
   def index
     options = {
-      count:params[:number_of_angles].to_i, 
+      count:params[:number_of_angles], 
       range:1..8, 
-      threshold:params[:angle_threshold].to_i
+      too_far:params[:too_far],
+      too_close:params[:too_close]
     }
     @generator = Generator.new(options)
     begin
