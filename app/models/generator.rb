@@ -35,7 +35,7 @@ class Generator
         if t.possible? && within_threshold(t) && within_threshold2(t)
           @triangles << t
         else
-          if (Time.now - loop_start_time) > 1
+          if (Time.now - loop_start_time) > 10
             raise 'too much calculation'
           end
         end
